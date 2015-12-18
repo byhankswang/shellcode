@@ -1,8 +1,8 @@
 /*
-@Linux/x86 execve("/bin/sh");23 bytes shellcode
+@Title: Linux/x86 execve("/bin/sh");23 bytes shellcode
 @Date: 2015-12-18
-@Author: byhankswang@gmail.com
-@Github: https://github.com/byhankswang
+@Author: byhankswang
+@Contact: https://github.com/byhankswang
 @Tested on: x86-32/i686 ubuntu-14.04 Kernel-3.19.0-25-generic 
 
 @what we want to do:
